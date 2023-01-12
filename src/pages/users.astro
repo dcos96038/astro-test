@@ -1,0 +1,28 @@
+---
+import MainLayout from "../layouts/MainLayout.astro"
+import type { CharactersResult, Result } from "../types/characters"
+
+const resp = await fetch('https://rickandmortyapi.com/api/character')
+const data: CharactersResult = await resp.json()
+const characters = data.results.map((result: Result) => {
+  return {id: result.id, name: result.name, image: result.image}
+})
+console.log(characters)
+---
+
+<MainLayout>
+  <div class="flex gap-8 flex-col mt-4 ">
+    <h1 class="text-4xl">Users Page</h1>
+
+  <ul class="flex flex-wrap gap-10 justify-center">
+    {
+      characters.map(character => (
+        <li class='max-w-[100px] text-center'>
+          <h2 class="truncate overflow-hidden">{character.name}</h2>
+          <img src={character.image} alt={character.name} class='rounded-full w-[100px]' />
+        </li>
+      ))
+    }
+  </ul>
+  </div>
+</MainLayout>

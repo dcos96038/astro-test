@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+</head>
+<body>
+  <div class="container mx-auto">
+    <nav class='h-10 flex items-center justify-end gap-4 px-4 border-b '>
+      <a href="/" class="hover:text-green-500">Home</a>
+      <a href="/react" class="hover:text-green-500">React Example</a>
+      <a href="/users" class="hover:text-green-500">Users</a>
+      <a href="/posts" class="hover:text-green-500">Posts</a>
+    </nav>
+
+    <slot />
+  </div>
+</body>
+</html>
